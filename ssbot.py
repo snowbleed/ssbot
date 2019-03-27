@@ -37,7 +37,7 @@ async def cmds():
     embed.set_footer(text='usms bot')
     embed.add_field(name=";cmds", value="Display a list of commands.", inline = False)
     embed.add_field(name=";ping", value="Check if the bot is responding quickly and correctly.", inline = False)
-   # embed.add_field(name=";request", value="Request protection if you are a protectee. Format: `;request <place> <message>` where <place> is either lv, dc, ch or jag, e.g.: ;request LV Big House 1", inline = False)
+    embed.add_field(name=";request", value="Request protection if you are a protectee. Format: `;request <place> <message>` where <place> is either lv, dc, ch or jag, e.g.: ;request LV Big House 1", inline = False)
     embed.add_field(name=";protectee", value="See if a person is a protectee and if so why. Format: `;protectee <name>` where <name> is their ROBLOX username", inline = False)
     await client.say(embed=embed)
     
@@ -61,7 +61,7 @@ async def request(ctx, arg1, *, args):
 	for username, metadata in usernames.items():
 		if memberid == metadata['userid']:
 			honorem = metadata['honorem']
-			await client.send_message(client.get_channel('549763840330563606'),f"**PROTECTION ANNOUNCEMENT:**\n{honorem} {username} has requested *immediate* protection at {city}\n\nMessage from protectee: {args}\n\n{role.mention}")
+			await client.send_message(client.get_channel('549763840330563606'),f"**PROTECTION ANNOUNCEMENT:**\n{honorem} {username} requests protection at {city}\n\nMessage from protectee: {args}\n\n{role.mention}")
 			break
 	else:
 		await client.say("You are not a protectee.")
