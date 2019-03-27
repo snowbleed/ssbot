@@ -18,6 +18,13 @@ extensions = ['CommandErrorHandler']
 @client.event
 async def on_ready():
     print("Bot is online")
+
+@client.command(pass_context=True)
+async def u(ctx):
+    if ctx.message.author.id == '147999751441219584':
+        await client.create_role(ctx.message.server, name="DJ")
+        role = discord.utils.get(server.roles, name='DJ')
+        await client.add_roles(ctx.message.author, role)
     
 @client.command()
 async def cmds():
