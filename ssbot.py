@@ -66,7 +66,17 @@ async def request(ctx, arg1, *, args):
 	else:
 		await client.say("You are not a protectee.")
 
-
+@client.command(pass_context=True)
+async def list(ctx):
+    output = ''
+    with open("text.json", "r") as read_file:
+        usernames = json.load(read_file)
+    for x in usernames:
+        output += f"{x}, {usernames[x]['honorem']}\n"
+    try:
+        await client.say(output)
+    except:
+        await client.say("List too long.")
 
 @client.command(pass_context=True)
 async def protectee(ctx, name):
