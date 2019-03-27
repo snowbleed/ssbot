@@ -74,7 +74,7 @@ async def list(ctx):
     for x in usernames:
         output += f"{x}, {usernames[x]['honorem']}\n"
     try:
-        await client.say(output)
+        await client.say("__**List of protectees:**__"\n{output})
     except:
         await client.say("List too long.")
 
