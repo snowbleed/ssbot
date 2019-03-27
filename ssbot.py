@@ -41,7 +41,7 @@ async def cmds():
     embed.add_field(name=";protectee", value="See if a person is a protectee and if so why. Format: `;protectee <name>` where <name> is their ROBLOX username", inline = False)
     await client.say(embed=embed)
     
-"""
+
 @client.command(pass_context=True)
 async def request(ctx, arg1, *, args):
 	with open("text.json", "r") as read_file:
@@ -51,25 +51,21 @@ async def request(ctx, arg1, *, args):
 		city='Las Vegas *https://www.roblox.com/games/163865146/LV*'
 	elif arg1.lower() == 'dc':
 		city='Washington D.C. *https://www.roblox.com/games/1213026131/DC*'
-	elif arg1.lower() == 'ch':
-		city='Federal Courthouse *https://www.roblox.com/games/489987188/USA-United-States-Federal-Courthouse*'
-	elif arg1.lower() == 'jag':
-		city='JAG Courthouse *https://www.roblox.com/games/2776040253/JAG-Court-House*'
 	else:
-		await client.say("Place needs to be either `LV`, `DC`, `CH` (Federal Courthouse), or `JAG` (Military Courthouse)")
+		await client.say("Place needs to be either `LV` or `DC`")
 		return
 	if args == '':
 		args = 'N/A'
-	server = client.get_server('511646082200240131')
-	role = discord.utils.get(server.roles, name='USMS')
+	server = client.get_server('441385793492221962')
+	role = discord.utils.get(server.roles, name='Secret Service')
 	for username, metadata in usernames.items():
 		if memberid == metadata['userid']:
 			honorem = metadata['honorem']
-			await client.send_message(client.get_channel('549431202772418567'),f"**PROTECTION ANNOUNCEMENT:**\n{honorem} {username} has requested *immediate* protection at {city}\n\nMessage from protectee: {args}\n\n{role.mention}")
+			await client.send_message(client.get_channel('549763840330563606'),f"**PROTECTION ANNOUNCEMENT:**\n{honorem} {username} has requested *immediate* protection at {city}\n\nMessage from protectee: {args}\n\n{role.mention}")
 			break
 	else:
 		await client.say("You are not a protectee.")
-"""
+
 
 
 @client.command(pass_context=True)
