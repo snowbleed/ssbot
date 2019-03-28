@@ -72,7 +72,7 @@ async def list(ctx):
     with open("text.json", "r") as read_file:
         usernames = json.load(read_file)
     for x in usernames:
-        output += f"{x}, {usernames[x]['honorem']} `PRIORITY: {usernames[x]['priority']}\n"
+        output += f"{x}, {usernames[x]['honorem']} `PRIORITY: {usernames[x]['priority']}`\n"
     try:
         await client.say(f"__**List of protectees:**__\n{output}")
     except:
