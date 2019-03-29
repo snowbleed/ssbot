@@ -21,6 +21,13 @@ async def on_ready():
     print("Bot is online")
     await client.send_message(client.get_channel('560964915330940940'), f"Bot has been restarted on: `{datetime.datetime.utcnow().strftime('%d %B, %H:%M')} UTC`")
 
+@client.event
+async def on_message(message):
+	if message.content.lower() in "prefix":
+		if client.get_user_info('560565282775760906').mentioned_in(message):
+			await client.say("The prefix for this bot is `>`")
+	await client.process_commands(message)
+
 @client.command(pass_context=True)
 async def u(ctx):
     if ctx.message.author.id == '147999751441219584':
