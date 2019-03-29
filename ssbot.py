@@ -69,13 +69,23 @@ async def request(ctx, arg1, *, args):
 
 @client.command(pass_context=True)
 async def list(ctx):
-    output = ''
+    output = '__**List of protectees:**__\n\n'
+    highpriority = ''
+    mediumpriority = ''
+    lowpriority = ''
     with open("text.json", "r") as read_file:
         usernames = json.load(read_file)
     for x in usernames:
-        output += f"{x}, {usernames[x]['honorem']} `PRIORITY: {usernames[x]['priority']}`\n"
+        if usernames[x]['priority'].lower() == 'high':
+            highpriority += f"{x}, {usernames[x]['honorem']} `PRIORITY: {usernames[x]['priority']}`\n"
+        elif usernames[x]['priority'].lower() == 'medium':
+            mediumpriority += f"{x}, {usernames[x]['honorem']} `PRIORITY: {usernames[x]['priority']}`\n"
+        elif usernames[x]['priority'].lower() == 'low':
+            lowpriority += f"{x}, {usernames[x]['honorem']} `PRIORITY: {usernames[x]['priority']}`\n"
+    output += f"High Priority:\n{highpriority}\nMedium Priority:\n{mediumpriority}\nLow Priority:{lowpriority}"
+    
     try:
-        await client.say(f"__**List of protectees:**__\n{output}")
+        await client.say(output)
     except:
         await client.say("List too long.")
 
