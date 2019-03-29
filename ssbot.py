@@ -21,7 +21,7 @@ async def on_ready():
     print("Bot is online")
     await client.send_message(client.get_channel('560964915330940940'), f"Bot has been restarted on: `{datetime.datetime.utcnow().strftime('%d %B, %H:%M')} UTC`")
 
-@client.event(pass_context=True)
+@client.event
 async def on_message(message):
 	if "prefix" in message.content.lower():
 		if client.user.mentioned_in(message):
