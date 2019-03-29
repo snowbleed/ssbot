@@ -77,12 +77,12 @@ async def list(ctx):
         usernames = json.load(read_file)
     for x in usernames:
         if usernames[x]['priority'].lower() == 'high':
-            highpriority += f"{x}, {usernames[x]['honorem']} `PRIORITY: {usernames[x]['priority']}`\n"
+            highpriority += f"{x}, {usernames[x]['honorem']}\n"
         elif usernames[x]['priority'].lower() == 'medium':
-            mediumpriority += f"{x}, {usernames[x]['honorem']} `PRIORITY: {usernames[x]['priority']}`\n"
+            mediumpriority += f"{x}, {usernames[x]['honorem']}\n"
         elif usernames[x]['priority'].lower() == 'low':
-            lowpriority += f"{x}, {usernames[x]['honorem']} `PRIORITY: {usernames[x]['priority']}`\n"
-    output += f"High Priority:\n{highpriority}\nMedium Priority:\n{mediumpriority}\nLow Priority:{lowpriority}"
+            lowpriority += f"{x}, {usernames[x]['honorem']}\n"
+    output += f"`High Priority:`\n{highpriority}\n`Medium Priority:`\n{mediumpriority}\n`Low Priority:`\n{lowpriority}"
     
     try:
         await client.say(output)
