@@ -59,12 +59,12 @@ async def request(ctx, arg1, *, args):
 	if args == '':
 		args = 'N/A'
 	server = client.get_server('441385793492221962')
-	role = discord.utils.get(server.roles, name='Secret Service')
+    role = discord.utils.get(server.roles, name='Secret Service')
 	for username, metadata in usernames.items():
 		if memberid == metadata['userid']:
-            data = urllib.request.urlopen(f"https://api.roblox.com/users/get-by-username?username={username}").read()
-            robloxapi = json.loads(data)
-            profile = robloxapi["Id"]
+			data = urllib.request.urlopen(f"https://api.roblox.com/users/get-by-username?username={username}").read()
+			robloxapi = json.loads(data)
+			profile = robloxapi["Id"]
 			honorem = metadata['honorem']
 			await client.send_message(client.get_channel('549763840330563606'),f"**PROTECTION ANNOUNCEMENT:**\n{honorem} {username} requests protection at {city}\nProfile: https://www.roblox.com/users/{profile}/profile\nMessage from protectee: {args}\n\n{role.mention}")
 			break
