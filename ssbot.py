@@ -24,8 +24,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
 	if "prefix" in message.content.lower():
-		thebot = await client.get_user_info('560565282775760906')
-		if thebot.mentioned_in(message):
+		if client.mentioned_in(message):
 			await client.say("The prefix for this bot is `>`")
 	await client.process_commands(message)
 
