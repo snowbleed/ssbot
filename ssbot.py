@@ -66,7 +66,7 @@ async def request(ctx, arg1, *, args):
 			robloxapi = json.loads(data)
 			profile = robloxapi["Id"]
 			honorem = metadata['honorem']
-			await client.send_message(client.get_channel('549763840330563606'),f"**PROTECTION ANNOUNCEMENT:**\n{honorem} {username} requests protection at {city}\nProfile: https://www.roblox.com/users/{profile}/profile\nMessage from protectee: {args}\n\n")
+			await client.send_message(client.get_channel('549763840330563606'),f"**PROTECTION ANNOUNCEMENT:**\n{honorem} {username} requests protection at: {city}\nProfile: https://www.roblox.com/users/{profile}/profile\n\nMessage from protectee: {args}\n\n{role.mention}")
 			break
 	else:
 		await client.say("You are not a protectee.")
