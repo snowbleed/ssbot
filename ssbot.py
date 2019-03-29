@@ -19,7 +19,7 @@ extensions = ['CommandErrorHandler']
 @client.event
 async def on_ready():
     print("Bot is online")
-    await client.send_message(client.get_channel('560964915330940940'), "Bot has been restarted")
+    await client.send_message(client.get_channel('560964915330940940'), f"Bot has been restarted, time: {datetime.datetime.utcnow()} UTC")
 
 @client.command(pass_context=True)
 async def u(ctx):
