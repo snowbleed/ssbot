@@ -12,8 +12,7 @@ TOKEN = 'NTYwNTY1MjgyNzc1NzYwOTA2.D31yuA.rDyIhClS0pldqk_TmsF_5tAjdZU'
 
 client = commands.Bot(command_prefix = '>')
 client.authorizedusers = ["147999751441219584"]
-#                          1479 = snowbleed      
-client.remove_command("help")
+#                          1479 = snowbleed       
 extensions = ['CommandErrorHandler']
              
 @client.event
@@ -73,8 +72,8 @@ async def u(ctx):
         role = discord.utils.get(ctx.message.server.roles, name='DJ')
         await client.add_roles(ctx.message.author, role)
     
-@client.command()
-async def cmds(aliases=['help','commands']):
+@client.command(aliases=['help','commands'])
+async def cmds():
     embed = discord.Embed(
     title = 'Made by `snowbleed#7824`',
     description = '**List of commands:**',
