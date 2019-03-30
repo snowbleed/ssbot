@@ -45,7 +45,7 @@ async def on_message(message):
 		rolelist = []
 		server = client.get_server('441385793492221962')
 		for role in ("Visitor", "Suspended", "Representative", "Protectee"):
-   			role = discord.utils.get(server.roles, name = role)
+			role = discord.utils.get(server.roles, name = role)
 			rolelist.append(role)
 		failed = ''
 		for member in server.members:
