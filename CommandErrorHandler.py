@@ -21,9 +21,11 @@ class CommandErrorHandler:
 
         if isinstance(error, ignored):
             return
+        
         elif isinstance(error, commands.UserInputError):
             await self.bot.send_message(ctx.message.channel, 'You are missing a required argument, look through the command list.')
-            
+            return
+        
         elif isinstance(error, commands.DisabledCommand):
             await self.bot.send_message(ctx.message.channel, '{} has been disabled.'.format(ctx.command))
             return
