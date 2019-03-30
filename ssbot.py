@@ -12,7 +12,8 @@ TOKEN = 'NTYwNTY1MjgyNzc1NzYwOTA2.D31yuA.rDyIhClS0pldqk_TmsF_5tAjdZU'
 
 client = commands.Bot(command_prefix = '>')
 client.authorizedusers = ["147999751441219584"]
-#                          1479 = snowbleed       
+#                          1479 = snowbleed    
+client.remove_command("help")
 extensions = ['CommandErrorHandler']
              
 @client.event
