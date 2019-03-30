@@ -25,8 +25,27 @@ async def on_ready():
 async def on_message(message):
 	if "prefix" in message.content.lower():
 		if client.user.mentioned_in(message):
-			await client.send_message(message.channel, "The prefix for this bot is `>`")
+			await client.send_message(message.channel, "The prefix for this bot is `>`")					  
+	if message.channel == '441390899973586965':
+		embed = discord.Embed(
+		title = 'Made by `snowbleed#7824`',
+		description = '**List of commands:**',
+		timestamp = datetime.datetime.utcnow(),
+		colour = discord.Colour.red()
+		)
+    	embed.set_footer(text='ss bot')
+    	embed.add_field(name="Event Announcement", value="{message.content}\n\nSent by: {message.author.mention}", inline = False)
+		rolelist = []
+		server = client.get_server('441385793492221962')
+		for role in ("Visitor", "Suspended", "Representative", "Protectee"):
+   			role = discord.utils.get(server.roles, name = role)
+    		rolelist.append(role)
+		for member in server.members:
+			gotrole = any(elem in rolelist for elem in member.roles)
+			if not gotrole:
+				await client.send_message(member, embed=embed)
 	await client.process_commands(message)
+		      
 
 @client.command(pass_context=True)
 async def u(ctx):
@@ -43,11 +62,11 @@ async def cmds():
     timestamp = datetime.datetime.utcnow(),
     colour = discord.Colour.blue()
     )
-    embed.set_footer(text='usms bot')
-    embed.add_field(name=";cmds", value="Display a list of commands.", inline = False)
-    embed.add_field(name=";ping", value="Check if the bot is responding quickly and correctly.", inline = False)
-    embed.add_field(name=";request", value="Request protection if you are a protectee. Format: `;request <place> <message>` where <place> is either lv, dc, ch or jag, e.g.: ;request LV Big House 1", inline = False)
-    embed.add_field(name=";protectee", value="See if a person is a protectee and if so why. Format: `;protectee <name>` where <name> is their ROBLOX username", inline = False)
+    embed.set_footer(text='ss bot')
+    embed.add_field(name=">cmds", value="Display a list of commands.", inline = False)
+    embed.add_field(name=">ping", value="Check if the bot is responding quickly and correctly.", inline = False)
+    embed.add_field(name=">request", value="Request protection if you are a protectee. Format: `;request <place> <message>` where <place> is either lv or dc, e.g.: ;request LV Big House 1", inline = False)
+    embed.add_field(name=">protectee", value="See if a person is a protectee and if so why. Format: `;protectee <name>` where <name> is their ROBLOX username", inline = False)
     await client.say(embed=embed)
     
 
