@@ -37,7 +37,7 @@ async def on_message(message):
 		embed.add_field(name="Event Announcement", value=f"{message.content}\n\nSent by: {message.author.mention}", inline = False)
 		await client.send_message(message.author, embed=embed) 
 		await client.send_message(message.author, f"Do you wish to forward this announcement to your agents via direct messages? If so, please say `yes`, else say `no`.")
-		msg = await client.wait_for_message(author=ctx.message.author)
+		msg = await client.wait_for_message(author=message.author)
 		if msg.content.lower() != 'yes':
 			await client.send_message(message.author, "Announcement has not been forwarded.")
 			return
