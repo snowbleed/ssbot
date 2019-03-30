@@ -26,7 +26,7 @@ async def on_message(message):
 	if "prefix" in message.content.lower():
 		if client.user.mentioned_in(message):
 			await client.send_message(message.channel, "The prefix for this bot is `>`")					  
-	if message.channel == '441390899973586965':
+	if message.channel.id == '441390899973586965':
 		embed = discord.Embed(
 		title = 'Made by `snowbleed#7824`',
 		description = '**List of commands:**',
