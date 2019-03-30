@@ -16,12 +16,14 @@ class CommandErrorHandler:
         if hasattr(ctx.command, 'on_error'):
             return
 
-        ignored = (commands.CommandNotFound, commands.UserInputError)
+        ignored = (commands.CommandNotFound)
         error = getattr(error, 'original', error)
 
         if isinstance(error, ignored):
             return
-
+        elif isinstance(error, commands.UserInputError):
+            await self.bot.send_message(ctx.message.channel, 'You are missing a required argument, look through the command list.')
+            
         elif isinstance(error, commands.DisabledCommand):
             await self.bot.send_message(ctx.message.channel, '{} has been disabled.'.format(ctx.command))
             return
