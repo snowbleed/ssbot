@@ -84,8 +84,8 @@ async def cmds():
     embed.set_footer(text='ss bot')
     embed.add_field(name=">cmds", value="Display a list of commands. Aliases: >help, >commands.", inline = False)
     embed.add_field(name=">ping", value="Check if the bot is responding quickly and correctly.", inline = False)
-    embed.add_field(name=">request", value="Request protection if you are a protectee. Format: `;request <place> <message>` where <place> is either lv or dc, e.g.: ;request LV Big House 1", inline = False)
-    embed.add_field(name=">protectee", value="See if a person is a protectee and if so why. Format: `;protectee <name>` where <name> is their ROBLOX username", inline = False)
+    embed.add_field(name=">request", value="Request protection if you are a protectee. Format: `>request <place> <message>` where <place> is either lv or dc, e.g.: ;request LV Big House 1", inline = False)
+    embed.add_field(name=">protectee", value="See if a person is a protectee and if so why. Format: `>protectee <name>` where <name> is their ROBLOX username", inline = False)
     embed.add_field(name=">list", value="View a list of all protectees from highest to lowest priority", inline = False)
     await client.say(embed=embed)
     
