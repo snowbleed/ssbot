@@ -48,10 +48,22 @@ async def on_message(message):
 		for role in ("Visitor", "Suspended", "Representative", "Protectee"):
    			role = discord.utils.get(server.roles, name = role)
 		rolelist.append(role)
+		failed = ''
 		for member in server.members:
 			gotrole = any(elem in rolelist for elem in member.roles)
 			if not gotrole:
-				await client.send_message(member, embed=embed)
+				try:
+					await client.send_message(member, embed=embed)
+				except:
+					failed += f"{member.name}#{member.discriminator}\n"
+		await client.send_message(member, "Announcement sent.")
+		if failed:
+			try:
+				await client.send_message(member, f"Failed to send your announcement to:\n {failed}")
+			except:
+				await client.send_message(member, "Failed to send your announcement to several members.") 
+		else:
+			await client.send_message(member, "Succesfully sent your announcement to everyone.")
 	await client.process_commands(message)
 		      
 
