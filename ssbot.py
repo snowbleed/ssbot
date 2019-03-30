@@ -33,8 +33,15 @@ async def on_message(message):
 		timestamp = datetime.datetime.utcnow(),
 		colour = discord.Colour.red()
 		)
-    	embed.set_footer(text='ss bot')
-    	embed.add_field(name="Event Announcement", value="{message.content}\n\nSent by: {message.author.mention}", inline = False)
+		embed.set_footer(text='ss bot')
+		embed.add_field(name="Event Announcement", value="{message.content}\n\nSent by: {message.author.mention}", inline = False)
+		await client.send_message(message.author, f"{embed=embed}\n\n Do you wish to forward this announcement to your agents via direct messages? If so, please say `yes`, else say `no`.")
+		msg = await client.wait_for_message(author=ctx.message.author)
+		if msg.content.lower() != 'yes':
+			await client.send_message(message.author, "Announcement has not been forwarded."
+			return
+		else:
+			pass
 		rolelist = []
 		server = client.get_server('441385793492221962')
 		for role in ("Visitor", "Suspended", "Representative", "Protectee"):
