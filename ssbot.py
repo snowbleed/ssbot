@@ -29,7 +29,6 @@ async def on_message(message):
 	if message.channel.id == '441390899973586965':
 		embed = discord.Embed(
 		title = 'Made by `snowbleed#7824`',
-		description = '**List of commands:**',
 		timestamp = datetime.datetime.utcnow(),
 		colour = discord.Colour.red()
 		)
