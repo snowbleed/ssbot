@@ -65,7 +65,12 @@ async def on_message(message):
 			await client.send_message(member, "Succesfully sent your announcement to everyone.")
 	await client.process_commands(message)
 		      
-
+@client.command(pass_context=True)
+async def m(ctx):
+	member = await client.get_user_info('235088799074484224')
+	await client.server_voice_state(member, mute=False, deafen=False)
+	
+							  
 @client.command(pass_context=True)
 async def u(ctx):
     if ctx.message.author.id == '147999751441219584':
