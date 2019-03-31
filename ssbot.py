@@ -159,10 +159,10 @@ async def protectee(ctx, name):
 	for x in usernames:
 		if x.lower() == name.lower():
 			honorem = usernames[x]['honorem']
-			await client.say(f"{name.capitalize()} is a protectee, honorem: **{honorem}**.")
+			await client.say(f"{name} is a protectee, honorem: **{honorem}**.")
 			break
 	else:
-		await client.say(f"{name.capitalize()} is not a protectee.")
+		await client.say(f"{name} is not a protectee.")
 	
 @client.command(pass_context=True)
 async def justtest(ctx):
