@@ -132,12 +132,15 @@ async def request(ctx, arg1, *, args):
 @client.command(pass_context=True)
 async def list(ctx):
     output = '__**List of protectees:**__\n\n'
+    formerpotus = ["Former President of the United States","Former Vice President of the United States"]
     highpriority = ''
     mediumpriority = ''
     lowpriority = ''
     with open("text.json", "r") as read_file:
         usernames = json.load(read_file)
     for x in usernames:
+        if formerpotus in usernames[x]['honorem']:
+            continue
         if usernames[x]['priority'].lower() == 'high':
             highpriority += f"{x}, {usernames[x]['honorem']}\n"
         elif usernames[x]['priority'].lower() == 'medium':
