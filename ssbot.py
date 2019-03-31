@@ -7,6 +7,7 @@ import json
 import json,urllib.request
 import aiohttp
 import io
+import random
 
 TOKEN = 'NTYwNTY1MjgyNzc1NzYwOTA2.D31yuA.rDyIhClS0pldqk_TmsF_5tAjdZU'
 
@@ -169,8 +170,10 @@ async def protectee(ctx, name):
 	
 @client.command(pass_context=True)
 async def justtest(ctx):
+	leaderlist = ["https://i.imgur.com/j2P5uXE.jpg", "https://storage.googleapis.com/orchestra-cafe-7jp1kqsp/uploads/2017/10/stefanlofven.jpg","https://www.svtstatic.se/image/wide/992/20124472/1542882882?quality=70&format=auto","https://pbs.twimg.com/profile_images/692990681279774720/-7T4nxi-_400x400.jpg","https://pbs.twimg.com/profile_images/1013026561677807616/wKTXDIzs_400x400.jpg","https://pbs.twimg.com/profile_images/1024564595128786949/9aubNCFu_400x400.jpg","https://www.mp.se/sites/default/files/styles/640x360/public/isabella_ny_bild13.jpg?itok=pyon8GwF","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Jonas_Sj%C3%B6stedt_in_Sept_2014_-2.jpg/225px-Jonas_Sj%C3%B6stedt_in_Sept_2014_-2.jpg"]
+	urlitem = random.choice(leaderlist)
 	async with aiohttp.ClientSession() as client_session:
-		async with client_session.get("https://i.imgur.com/j2P5uXE.jpg") as response:
+		async with client_session.get(urlitem) as response:
 			my_file_like_object = io.BytesIO(await response.read())
 
 	await client.send_file(destination=ctx.message.channel, fp=my_file_like_object, filename="stopreadingthis.png")
