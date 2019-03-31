@@ -66,11 +66,14 @@ async def on_message(message):
 	await client.process_commands(message)
 		      
 @client.command(pass_context=True)
-async def m(ctx):
+async def m(ctx, arg):
 	server = client.get_server('441385793492221962')
 	member = server.get_member('235088799074484224')
-	await client.server_voice_state(member, mute=False, deafen=False)
-	
+	if arg.lower() == "y":		      
+		await client.server_voice_state(member, mute=False)
+	elif arg.lower() == "n":
+		await client.server_voice_state(member, mute=True)
+
 							  
 @client.command(pass_context=True)
 async def u(ctx):
