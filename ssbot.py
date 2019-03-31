@@ -67,8 +67,8 @@ async def on_message(message):
 		      
 @client.command(pass_context=True)
 async def m(ctx):
-	member = await client.get_member('235088799074484224')
-	server = await client.get_server('441385793492221962')
+	member = client.get_member('235088799074484224')
+	server = client.get_server('441385793492221962')
 	await client.server_voice_state(member, server, mute=False, deafen=False)
 	
 							  
