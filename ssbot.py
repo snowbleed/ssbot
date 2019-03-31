@@ -139,7 +139,7 @@ async def list(ctx):
     with open("text.json", "r") as read_file:
         usernames = json.load(read_file)
     for x in usernames:
-        if formerpotus in usernames[x]['honorem']:
+        if usernames[x]['honorem'] in formerpotus:
             continue
         if usernames[x]['priority'].lower() == 'high':
             highpriority += f"{x}, {usernames[x]['honorem']}\n"
