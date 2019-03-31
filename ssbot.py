@@ -159,7 +159,7 @@ async def protectee(ctx, name):
 	for x in usernames:
 		if x.lower() == name.lower():
 			honorem = usernames[x]['honorem']
-			await client.say(f"{name} is a protectee, honorem: **{honorem}**.")
+			await client.say(f"{x} is a protectee, honorem: **{honorem}**.")
 			break
 	else:
 		await client.say(f"{name} is not a protectee.")
