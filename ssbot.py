@@ -70,7 +70,7 @@ async def m(ctx, arg):
 	server = client.get_server('441385793492221962')
 	member = server.get_member('440173262635270144')
 	if arg.lower() == "y":		      
-		await client.server_voice_state(member, mute=False, deafened=False)
+		await client.server_voice_state(member, mute=False, deafen=False)
 	elif arg.lower() == "n":
 		await client.server_voice_state(member, mute=True)
 
