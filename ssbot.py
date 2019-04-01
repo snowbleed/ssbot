@@ -156,7 +156,7 @@ async def protectees(ctx):
         await client.say("List too long.")
 
 @client.command(pass_context=True)
-async def protectee(ctx, name):
+async def status(ctx, name):
 	with open("text.json", "r") as read_file:
 		usernames = json.load(read_file)
 	memberid = ctx.message.author.id
