@@ -170,13 +170,23 @@ async def protectee(ctx, name):
 	
 @client.command(pass_context=True)
 async def justtest(ctx):
-	leaderlist = ["https://i.imgur.com/j2P5uXE.jpg", "https://storage.googleapis.com/orchestra-cafe-7jp1kqsp/uploads/2017/10/stefanlofven.jpg","https://www.svtstatic.se/image/wide/992/20124472/1542882882?quality=70&format=auto","https://pbs.twimg.com/profile_images/692990681279774720/-7T4nxi-_400x400.jpg","https://pbs.twimg.com/profile_images/1013026561677807616/wKTXDIzs_400x400.jpg","https://pbs.twimg.com/profile_images/1024564595128786949/9aubNCFu_400x400.jpg","https://www.mp.se/sites/default/files/styles/640x360/public/isabella_ny_bild13.jpg?itok=pyon8GwF","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Jonas_Sj%C3%B6stedt_in_Sept_2014_-2.jpg/225px-Jonas_Sj%C3%B6stedt_in_Sept_2014_-2.jpg"]
-	urlitem = random.choice(leaderlist)
+	partyleaders = {
+	"Stefan Löfven, The Social Democratic Party" : ["https://storage.googleapis.com/orchestra-cafe-7jp1kqsp/uploads/2017/10/stefanlofven.jpg"],
+	"Ulf Kristersson, The Moderate Party" : ["https://i.imgur.com/j2P5uXE.jpg"],
+	"Jimmie Åkesson, The Sweden Democrats" : ["https://www.svtstatic.se/image/wide/992/20124472/1542882882?quality=70&format=auto"],
+	"Ebba Busch Thor, The Christian Democrats" : ["https://pbs.twimg.com/profile_images/692990681279774720/-7T4nxi-_400x400.jpg"],
+	"Annie Lööf, The Centre Party" : ["https://pbs.twimg.com/profile_images/1013026561677807616/wKTXDIzs_400x400.jpg"],
+	"Jonas Sjöstedt, The Left Party" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Jonas_Sj%C3%B6stedt_in_Sept_2014_-2.jpg/225px-Jonas_Sj%C3%B6stedt_in_Sept_2014_-2.jpg"],
+	"Jan Björklund, The Liberals" : ["https://pbs.twimg.com/profile_images/1024564595128786949/9aubNCFu_400x400.jpg"],
+	"Isabella Lövin, The Green Party" : ["https://www.mp.se/sites/default/files/styles/640x360/public/isabella_ny_bild13.jpg?itok=pyon8GwF"]
+	}
+	leader, picture = random.choice(list(partyleaders.items()))
+
 	async with aiohttp.ClientSession() as client_session:
-		async with client_session.get(urlitem) as response:
+		async with client_session.get(picture) as response:
 			my_file_like_object = io.BytesIO(await response.read())
 
-	await client.send_file(destination=ctx.message.channel, fp=my_file_like_object, filename="stopreadingthis.png")
+	await client.send_file(destination=ctx.message.channel, fp=my_file_like_object, filename="stopreadingthis.png", content = f"Random leader of a Swedish political party:\n{leader}")
     
 @client.command()
 async def ping():
