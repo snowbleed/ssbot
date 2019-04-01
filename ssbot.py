@@ -98,8 +98,8 @@ async def cmds():
     embed.add_field(name=">cmds", value="Display a list of commands. Aliases: >help, >commands.", inline = False)
     embed.add_field(name=">ping", value="Check if the bot is responding quickly and correctly.", inline = False)
     embed.add_field(name=">request", value="Request protection if you are a protectee. Format: `>request <place> <message>` where <place> is either lv or dc, e.g.: ;request LV Big House 1", inline = False)
-    embed.add_field(name=">protectee", value="See if a person is a protectee and if so why. Format: `>protectee <name>` where <name> is their ROBLOX username", inline = False)
-    embed.add_field(name=">list", value="View a list of all protectees from highest to lowest priority", inline = False)
+    embed.add_field(name=">status", value="See if a person is a protectee and if so why. Format: `>status <name>` where <name> is their ROBLOX username", inline = False)
+    embed.add_field(name=">protectees", value="View a list of all protectees from highest to lowest priority", inline = False)
     await client.say(embed=embed)
     
 
@@ -131,8 +131,8 @@ async def request(ctx, arg1, *, args):
 		await client.say("You are not a protectee.")
 
 @client.command(pass_context=True)
-async def list(ctx):
-    output = '__**List of protectees:**__\n\n'
+async def protectees(ctx):
+    output = '__**List of protectees, (former Presidents and Vice Presidents have been excluded from the list but are still protectees):**__\n\n'
     formerpotus = ["Former President of the United States","Former Vice President of the United States"]
     highpriority = ''
     mediumpriority = ''
