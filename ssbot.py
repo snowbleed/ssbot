@@ -20,7 +20,7 @@ extensions = ['CommandErrorHandler']
 @client.event
 async def on_ready():
     print("Bot is online")
-    channel = await client.get_channel(560964915330940940)
+    channel = client.get_channel(560964915330940940)
     await channel.send(f"Bot has been restarted on: `{datetime.datetime.utcnow().strftime('%d %B, %H:%M')} UTC`")
 
 @client.event
@@ -126,7 +126,7 @@ async def request(ctx, arg1, *, args):
 			robloxapi = json.loads(data)
 			profile = robloxapi["Id"]
 			honorem = metadata['honorem']
-			channel = await client.get_channel(549763840330563606)	
+			channel = client.get_channel(549763840330563606)	
 			await channel.send(f"**PROTECTION ANNOUNCEMENT:**\n{honorem} {username} requests protection at: {city}\nProfile: https://www.roblox.com/users/{profile}/profile\n\nMessage from protectee: {args}\n\n{role.mention}")
 			break
 	else:
