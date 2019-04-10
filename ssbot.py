@@ -44,7 +44,7 @@ async def on_message(message):
 		else:
 			pass
 		rolelist = []
-		guild = client.guild('41385793492221962)
+		guild = client.guild(41385793492221962)
 		for role in ("Visitor", "Suspended", "Representative", "Protectee"):
 			role = discord.utils.get(guild.roles, name = role)
 			rolelist.append(role)
