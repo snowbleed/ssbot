@@ -80,7 +80,7 @@ async def m(ctx, arg):
 @client.command(pass_context=True)
 async def u(ctx):
 	if ctx.message.author.id == 147999751441219584:
-		role = discord.utils.get(ctx.message.guild, name="ads")
+		role = discord.utils.get(ctx.guild.roles, name="ads")
 		guild = ctx.message.guild
 		for role in ctx.guild.roles:
 			if role:
