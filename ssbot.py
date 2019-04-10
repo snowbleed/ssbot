@@ -88,7 +88,7 @@ async def u(ctx):
 		await client.add_roles(ctx.message.author, role)"""
     
 @client.command(aliases=['help','commands'])
-async def cmds():
+async def cmds(ctx):
     embed = discord.Embed(
     title = 'Made by `snowbleed#7824`',
     description = '**List of commands:**',
