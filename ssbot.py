@@ -104,7 +104,7 @@ async def cmds(ctx):
     await ctx.send(embed=embed)
     
 
-@client.command(pass_context=True)
+@client.command()
 async def request(ctx, arg1, *, args):
 	with open("text.json", "r") as read_file:
 		usernames = json.load(read_file)
@@ -132,7 +132,7 @@ async def request(ctx, arg1, *, args):
 	else:
 		await ctx.send("You are not a protectee.")
 
-@client.command(pass_context=True)
+@client.command()
 async def protectees(ctx):
     output = '__**List of protectees, (former Presidents and Vice Presidents have been excluded from the list but are still protectees):**__\n\n'
     formerpotus = ["Former President of the United States","Former Vice President of the United States"]
