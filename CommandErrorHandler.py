@@ -24,7 +24,7 @@ class CommandErrorHandler(commands.Cog):
             return
         
         elif isinstance(error, commands.UserInputError):
-            await ctx.send'You are missing a required argument, look through the command list.')
+            await ctx.send('You are missing a required argument, look through the command list.')
             return
                 
         elif isinstance(error, commands.DisabledCommand):
