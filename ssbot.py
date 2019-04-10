@@ -20,11 +20,8 @@ extensions = ['CommandErrorHandler']
 @client.event
 async def on_ready():
     print("Bot is online")
-    for guild in client.guilds:
-        for channel in guild.channels:
-            print(f"{channel.name}, {channel.id}")
-    """channel = client.get_channel(560964915330940940)
-    await channel.send(f"Bot has been restarted on: `{datetime.datetime.utcnow().strftime('%d %B, %H:%M')} UTC`")"""
+    channel = client.get_channel(560964915330940940)
+    await channel.send(f"Bot has been restarted on: `{datetime.datetime.utcnow().strftime('%d %B, %H:%M')} UTC`")
 
 @client.event
 async def on_message(message):
