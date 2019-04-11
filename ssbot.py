@@ -5,7 +5,6 @@ import asyncio
 import time
 import datetime
 import json
-import json,urllib.request
 import aiohttp
 import io
 import random
@@ -124,12 +123,9 @@ async def request(ctx, arg1, *, args):
 	role = discord.utils.get(guild.roles, name='Secret Service')
 	for username, metadata in usernames.items():
 		if memberid == metadata['userid']:
-			data = urllib.request.urlopen(f"https://api.roblox.com/users/get-by-username?username={username}").read()
-			robloxapi = json.loads(data)
-			profile = robloxapi["Id"]
 			honorem = metadata['honorem']
 			channel = client.get_channel(549763840330563606)	
-			await channel.send(f"**PROTECTION ANNOUNCEMENT:**\n{honorem} {username} requests protection at: {city}\nProfile: https://www.roblox.com/users/{profile}/profile\n\nMessage from protectee: {args}\n\n{role.mention}")
+			await channel.send(f"**PROTECTION ANNOUNCEMENT:**\n{honorem} {username} requests protection at: {city}\n\nMessage from protectee: {args}\n\n{role.mention}")
 			break
 	else:
 		await ctx.send("You are not a protectee.")
