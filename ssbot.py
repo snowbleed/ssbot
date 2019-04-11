@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord.ext.commands.cooldowns import BucketType
 import asyncio
 import time
 import datetime
@@ -104,7 +105,7 @@ async def cmds(ctx):
     embed.add_field(name=">protectees", value="View a list of all protectees from highest to lowest priority", inline = False)
     await ctx.send(embed=embed)
     
-
+@commands.cooldown(1,1800,BucketType.user) 
 @client.command()
 async def request(ctx, arg1, *, args):
 	with open("text.json", "r") as read_file:
