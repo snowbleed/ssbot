@@ -121,8 +121,8 @@ async def request(ctx, arg1, *, args):
     role = discord.utils.get(guild.roles, name='Secret Service')
     print memberid, print metadata['userid']                
     for username, metadata in usernames.items():
-        print memberid
-        print metadata['userid'],                       
+        print(memberid, " - ", metadata['userid'])
+                     
         if str(memberid) == metadata['userid']:
             honorem = metadata['honorem']
             channel = client.get_channel(549763840330563606)	
