@@ -24,8 +24,11 @@ class CommandErrorHandler(commands.Cog):
             return
         
         elif isinstance(error, commands.UserInputError):
-            await ctx.send('You are missing a required argument, look through the command list.')
-            return
+            return await ctx.send('You are missing a required argument, look through the command list.')
+        
+        elif isinstance(error, commands.CommandOnCooldown):
+            return await ctx.send(f'The command is currently on cooldown, please try again in {cooldown} seconds')
+               
                 
         elif isinstance(error, commands.DisabledCommand):
             return await ctx.send(f'{ctx.command} has been disabled.')
