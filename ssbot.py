@@ -117,8 +117,8 @@ async def request(ctx, arg1, *, args):
     else:
         await ctx.send("Place needs to be either `LV` or `DC`")
         return
-	guild = client.get_guild(441385793492221962)
-	role = discord.utils.get(guild.roles, name='Secret Service')
+    guild = client.get_guild(441385793492221962)
+    role = discord.utils.get(guild.roles, name='Secret Service')
     print memberid, print metadata['userid']                
     for username, metadata in usernames.items():
         print memberid
