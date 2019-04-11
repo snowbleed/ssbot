@@ -107,28 +107,29 @@ async def cmds(ctx):
 @commands.cooldown(1,1800,BucketType.user) 
 @client.command()
 async def request(ctx, arg1, *, args):
-	with open("text.json", "r") as read_file:
-		usernames = json.load(read_file)
-	memberid = ctx.message.author.id
-	if arg1.lower() == 'lv':
-		city='Las Vegas *https://www.roblox.com/games/163865146/LV*'
-	elif arg1.lower() == 'dc':
-		city='Washington D.C. *https://www.roblox.com/games/1213026131/DC*'
-	else:
-		await ctx.send("Place needs to be either `LV` or `DC`")
-		return
-	if args == '':
-		args = 'N/A'
+    with open("text.json", "r") as read_file:
+        usernames = json.load(read_file)
+    memberid = ctx.message.author.id
+    if arg1.lower() == 'lv':
+        city='Las Vegas *https://www.roblox.com/games/163865146/LV*'
+    elif arg1.lower() == 'dc':
+        city='Washington D.C. *https://www.roblox.com/games/1213026131/DC*'
+    else:
+        await ctx.send("Place needs to be either `LV` or `DC`")
+        return
 	guild = client.get_guild(441385793492221962)
 	role = discord.utils.get(guild.roles, name='Secret Service')
-	for username, metadata in usernames.items():
-		if memberid == metadata['userid']:
-			honorem = metadata['honorem']
-			channel = client.get_channel(549763840330563606)	
-			await channel.send(f"**PROTECTION ANNOUNCEMENT:**\n{honorem} {username} requests protection at: {city}\n\nMessage from protectee: {args}\n\n{role.mention}")
-			break
-	else:
-		await ctx.send("You are not a protectee.")
+    print memberid, print metadata['userid']                
+    for username, metadata in usernames.items():
+        print memberid
+        print metadata['userid'],                       
+        if str(memberid) == metadata['userid']:
+            honorem = metadata['honorem']
+            channel = client.get_channel(549763840330563606)	
+            await channel.send(f"**PROTECTION ANNOUNCEMENT:**\n{honorem} {username} requests protection at: {city}\n\nMessage from protectee: {args}\n\n{role.mention}")
+            break
+    else:
+        await ctx.send("You are not a protectee.")
 
 @client.command()
 async def protectees(ctx):
