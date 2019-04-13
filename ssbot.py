@@ -120,7 +120,7 @@ async def cmds(ctx):
     embed.add_field(name=">protectees", value="View a list of all protectees from highest to lowest priority", inline = False)
     await ctx.send(embed=embed)
     
-@commands.cooldown(1,1800,BucketType.user) 
+"""@commands.cooldown(1,1800,BucketType.user) 
 @client.command()
 async def request(ctx, arg1, *, args):
     with open("text.json", "r") as read_file:
@@ -142,7 +142,7 @@ async def request(ctx, arg1, *, args):
             await channel.send(f"**PROTECTION ANNOUNCEMENT:**\n{honorem} {username} requests protection at: {city}\n\nMessage from protectee: {args}\n\n{role.mention}")
             break
     else:
-        await ctx.send("You are not a protectee.")
+        await ctx.send("You are not a protectee.")"""
 
 @client.command()
 async def protectees(ctx):
