@@ -206,11 +206,13 @@ async def justtest(ctx):
 @client.command()
 async def changepic(ctx):
     if ctx.message.author.id == 147999751441219584:
-        pic = ctx.guild.icon_url_as(format='png', size=size)                       
+        msg = await ctx.send('Changing...')
+        pic = ctx.guild.icon_url_as(format='png', size=2048)                       
         async with aiohttp.ClientSession() as client_session:
             async with client_session.get(pic) as response:
                 avatar = io.BytesIO(await response.read())
-        await client.edit(avatar=avatar)                       
+        await client.edit(avatar=avatar)
+        await message.edit(content='Avatar changed!')                       
     
 @client.command()
 async def ping(ctx):
