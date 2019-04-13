@@ -169,7 +169,7 @@ async def protectees(ctx):
     except:
         await ctx.send("List too long.")
 
-"""@client.command(pass_context=True)
+@client.command(pass_context=True)
 async def status(ctx, name):
 	with open("text.json", "r") as read_file:
 		usernames = json.load(read_file)
@@ -183,7 +183,7 @@ async def status(ctx, name):
 			await ctx.send(f"{x} is a protectee, honorem: **{honorem}**.")
 			break
 	else:
-		await ctx.send(f"{name} is not a protectee.")"""
+		await ctx.send(f"{name} is not a protectee.")
 	
 """@client.command(pass_context=True)
 async def justtest(ctx):
