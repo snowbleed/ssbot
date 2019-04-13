@@ -77,8 +77,18 @@ async def m(ctx, arg):
 		await client.guild_voice_state(member, mute=True)"""
                        
 @client.command()
-async def guildpic(ctx):
-    pic = ctx.guild.icon_url_as(format='png', size=2048)
+async def guildpic(ctx, sizable):
+    if sizable.lower() == 'tiny':
+        size=256                
+    elif sizable.lower() == 'small':
+        size=512
+    elif sizable.lower() == 'medium':
+        size=1024
+    elif sizable.lower() == 'large':
+        size=2048 
+    elif sizable.lower() == 'huge':
+        size=4096                      
+    pic = ctx.guild.icon_url_as(format='png', size=size)
     await ctx.send(pic)          
 							  
 @client.command()
