@@ -178,7 +178,6 @@ async def status(ctx, name: commands.clean_content):
 	memberid = ctx.message.author.id
 	if ctx.message.mentions:
 		return await ctx.send("No mentions allowed buddy")
-	message.content = ctx.message.clean_content
 	for x in usernames:
 		if x.lower() == name.lower():
 			honorem = usernames[x]['honorem']
