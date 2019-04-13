@@ -169,14 +169,16 @@ async def protectees(ctx):
     except:
         await ctx.send("List too long.")
 
+
+					   
 @client.command(pass_context=True)
-async def status(ctx, name):
+async def status(ctx, name: commands.clean_content):
 	with open("text.json", "r") as read_file:
 		usernames = json.load(read_file)
 	memberid = ctx.message.author.id
-	if len(ctx.message.mentions) != 0:
-		return await ctx.send("No mentions buddy")
-	message = ctx.message.clean_content
+	if ctx.message.mentions:
+		return await ctx.send("No mentions allowed buddy")
+	message.content = ctx.message.clean_content
 	for x in usernames:
 		if x.lower() == name.lower():
 			honorem = usernames[x]['honorem']
