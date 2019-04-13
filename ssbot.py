@@ -174,6 +174,9 @@ async def status(ctx, name):
 	with open("text.json", "r") as read_file:
 		usernames = json.load(read_file)
 	memberid = ctx.message.author.id
+	if len(name.mentions) != 0:
+		return await ctx.send("No mentions buddy")
+	name = name.clean_content
 	for x in usernames:
 		if x.lower() == name.lower():
 			honorem = usernames[x]['honorem']
