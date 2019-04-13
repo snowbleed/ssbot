@@ -216,7 +216,7 @@ async def changepic(ctx):
             async with client_session.get(str(pic)) as response:
                 avatar = await response.read()
         await client.user.edit(avatar=avatar)
-        await message.edit(content='Avatar changed!')                       
+        await msg.edit(content='Avatar changed!')                       
     
 @client.command()
 async def ping(ctx):
