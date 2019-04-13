@@ -75,9 +75,13 @@ async def m(ctx, arg):
 		await client.guild_voice_state(member, mute=False, deafen=False)
 	elif arg.lower() == "n":
 		await client.guild_voice_state(member, mute=True)"""
-
+                       
+@client.command()
+async def guildpic(ctx):
+    pic = ctx.guild.icon_url_as(format='png', size=2048)
+    await ctx.send(pic)          
 							  
-@client.command(pass_context=True)
+@client.command()
 async def u(ctx):
 	if ctx.message.author.id == 147999751441219584:
 		role = discord.utils.get(ctx.guild.roles, name="ads")
