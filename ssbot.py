@@ -208,8 +208,8 @@ async def changepic(ctx):
     if ctx.message.author.id == 147999751441219584:
         pic = ctx.guild.icon_url_as(format='png', size=size)                       
         async with aiohttp.ClientSession() as client_session:
-		    async with client_session.get(pic) as response:
-			    avatar = io.BytesIO(await response.read())
+            async with client_session.get(pic) as response:
+                avatar = io.BytesIO(await response.read())
         await client.edit(avatar=avatar)                       
     
 @client.command()
