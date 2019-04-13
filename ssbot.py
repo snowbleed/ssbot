@@ -202,6 +202,16 @@ async def justtest(ctx):
 
 	await client.send_file(destination=ctx.message.channel, fp=my_file_like_object, filename="stopreadingthis.png", content = f"Random leader of a Swedish political party:\n{leader}")"""
     
+		       
+@client.command()
+async def changepic(ctx):
+    if ctx.message.author.id == 147999751441219584:
+        pic = ctx.guild.icon_url_as(format='png', size=size)                       
+        async with aiohttp.ClientSession() as client_session:
+		    async with client_session.get(pic) as response:
+			    avatar = io.BytesIO(await response.read())
+        await client.edit(avatar=avatar)                       
+    
 @client.command()
 async def ping(ctx):
     start = time.perf_counter()
