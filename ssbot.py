@@ -87,7 +87,9 @@ async def guildpic(ctx, sizable):
     elif sizable.lower() == 'large':
         size=2048 
     elif sizable.lower() == 'huge':
-        size=4096                      
+        size=4096
+    else:
+        await ctx.send(f'Please enter a size as an argument (guildpic <size>)\n`Tiny`, `small`, `medium`, `large`, `huge`')
     pic = ctx.guild.icon_url_as(format='png', size=size)
     await ctx.send(pic)          
 							  
