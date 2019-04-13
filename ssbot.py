@@ -186,9 +186,13 @@ async def justtest(ctx):
 
 	await client.send_file(destination=ctx.message.channel, fp=my_file_like_object, filename="stopreadingthis.png", content = f"Random leader of a Swedish political party:\n{leader}")"""
     
-@client.command()
-async def ping():
-    await ctx.send('Pong!')        
+@bot.command()
+async def ping(ctx):
+    start = time.perf_counter()
+    message = await ctx.send('Ping...')
+    end = time.perf_counter()
+    duration = (end - start) * 1000
+    await message.edit(content=f'Pong! {duration}ms')     
 	
 @client.command(pass_context=True)
 async def logout(ctx):
