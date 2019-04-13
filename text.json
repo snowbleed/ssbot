@@ -1,6 +1,6 @@
 {
 "Bakedgoods": {"userid": "284529481538863105","honorem": "President of the United States", "priority": "High"},
-"JohnnieLCuchran": {"userid": "425028097159462913","honorem": "President of the United States", "priority": "High"},
+"JohnnieLCuchran": {"userid": "425028097159462913","honorem": "Vice President of the United States", "priority": "High"},
 "CrownedShaggy": {"userid": "129391491528261632","honorem": "Secretary of Homeland Security", "priority": "Medium"},
 "AlexanderFitzpatrick": {"userid": "177507537401151488","honorem": "Secretary of Defense", "priority": "Medium"},
 "Mr_Anomalywza": {"userid": "470118198553870336","honorem": "Secretary of State", "priority": "Medium"},
@@ -20,7 +20,8 @@
 "Lordsightss": {"userid": "437551859688013844","honorem": "Former President of the United States", "priority": "Low"},
 "Marinio": {"userid": "151041863397277696","honorem": "Former President of the United States", "priority": "Low"},
 "largeTitanic2": {"userid": "140680852286865408","honorem": "Former Vice President of the United States", "priority": "Low"},
-"Aescies": {"userid": "201459061055684609","honorem": "Former Vice President of the United States", "priority": "Low"}
+"Aescies": {"userid": "201459061055684609","honorem": "Former Vice President of the United States", "priority": "Low"},
+"Procursive": {"userid": "517850988749783058","honorem": "Former President of the United States", "priority": "Low"},
 
 
 
