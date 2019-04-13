@@ -214,7 +214,7 @@ async def changepic(ctx):
         pic = ctx.guild.icon_url_as(format='png', size=2048)		       
         async with aiohttp.ClientSession() as client_session:
             async with client_session.get(str(pic)) as response:
-                avatar = io.BytesIO(await response.read())
+                avatar = await response.read()
         await client.user.edit(avatar=avatar)
         await message.edit(content='Avatar changed!')                       
     
