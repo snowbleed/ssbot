@@ -192,7 +192,7 @@ async def ping(ctx):
     message = await ctx.send('Ping...')
     end = time.perf_counter()
     duration = (end - start) * 1000
-    await message.edit(content=f'Pong! {duration}ms')     
+    await message.edit(content=f'Pong! {round(duration, 2)}ms')     
 	
 @client.command(pass_context=True)
 async def logout(ctx):
