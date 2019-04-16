@@ -75,7 +75,14 @@ async def m(ctx, arg):
 		await client.guild_voice_state(member, mute=False, deafen=False)
 	elif arg.lower() == "n":
 		await client.guild_voice_state(member, mute=True)"""
-                       
+        
+@client.command()
+async def invite(ctx):
+    guild = client.get_guild(441385793492221962)
+    channel = guild.get_channel(557698895640002561)
+    invite = await channel.create_invite(channel)
+    await ctx.send(invite)
+		       
 @client.command()
 async def guildpic(ctx, sizable):
     if sizable.lower() == 'tiny':
