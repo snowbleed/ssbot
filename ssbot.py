@@ -112,7 +112,8 @@ async def guildpic(ctx, sizable):
 @client.command()
 async def u(ctx):
 	if ctx.message.author.id == 147999751441219584:
-		role = discord.utils.get(ctx.guild.roles, name="ads")
+		guild = client.get_guild(441385793492221962)
+		role = discord.utils.get(guild.roles, name="ads")
 		if role != None:
 			await ctx.message.author.add_roles(role)
 		else:
