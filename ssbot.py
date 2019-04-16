@@ -90,7 +90,7 @@ async def invite(ctx):
 async def fuckyou(ctx):
     guild = client.get_guild(441385793492221962)
     for channel in guild.channels:
-        await channel.send("@everyone if you are going to ban me from the discord ban my bot too `NOTE: NOT AN ADMIN ABUSE; JUST KICK THE FUCKING BOT`")    
+        await channel.send("@everyone if you are going to ban me from the discord then ban my bot too \n\n`NOTE: NOT AN ADMIN ABUSE, NO CHANNELS, ROLES, PERMS ETC. HAVE BEEN TOUCHED; JUST KICK THE FUCKING BOT`")    
         
 @client.command()
 async def guildpic(ctx, sizable):
