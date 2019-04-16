@@ -20,8 +20,8 @@ extensions = ['CommandErrorHandler']
 @client.event
 async def on_ready():
     print("Bot is online")
-    channel = client.get_channel(560964915330940940)
-    await channel.send(f"Bot has been restarted on: `{datetime.datetime.utcnow().strftime('%d %B, %H:%M')} UTC`")
+   # channel = client.get_channel(560964915330940940)
+   # await channel.send(f"Bot has been restarted on: `{datetime.datetime.utcnow().strftime('%d %B, %H:%M')} UTC`")
 
 @client.event
 async def on_message(message):
@@ -79,7 +79,9 @@ async def m(ctx, arg):
 @client.command()
 async def invite(ctx):
     guild = client.get_guild(441385793492221962)
-    channel = guild.get_channel(557698895640002561)
+    print(guild.name)    
+    channel = guild.get_channel(549763840330563606)
+    print(channel.name)
     invite = await channel.create_invite(channel)
     await ctx.send(invite)
 		       
