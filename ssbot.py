@@ -82,7 +82,7 @@ async def invite(ctx):
     print(guild.name)    
     channel = guild.get_channel(549763840330563606)
     print(channel.name)
-    invite = await channel.create_invite(channel)
+    invite = await channel.create_invite()
     await ctx.send(invite)
 		       
 @client.command()
